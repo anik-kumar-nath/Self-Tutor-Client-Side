@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { AuthContext } from '../../../Context/AuthContextProvider';
 import logo from './../../../Assets/selfTutor_logo.png';
 
 const Header = () => {
     const user = 'anik';
+    const { theme, handleToggleTheme } = useContext(AuthContext);
     return (
-        <div>
-            <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+        <div className='fw-bolder'>
+            <Navbar collapseOnSelect expand="md" bg={theme} variant={theme}>
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
@@ -43,8 +45,8 @@ const Header = () => {
                             }
                         </Nav>
                     </Navbar.Collapse>
-                    <div className='d-flex justify-content-end'>
-                        <button className='mx-1 btn btn-primary'>Theme</button>
+                    <div className='d-flex justify-content-end align-items-center'>
+                        <button className='mx-1 btn btn-primary' onClick={handleToggleTheme}>{theme == 'dark' ? 'Light' : 'Dark'}</button>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     </div>
 
