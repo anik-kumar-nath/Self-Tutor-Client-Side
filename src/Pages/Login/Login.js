@@ -1,10 +1,14 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Button, ButtonGroup, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContextProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
+
+    const GoogleProvider = new GoogleAuthProvider();
+    const GithubProvider = new GithubAuthProvider();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -43,8 +47,8 @@ const Login = () => {
                         </Form>
                         <p>No account yet? <Link to={'/register'}>Register Now</Link> </p>
                         <hr className='border border-danger border-2 opacity-50 w-100' />
-                        <Button>Login with Google</Button>
-                        <Button>Login with Github</Button>
+                        <Button onClick={() => providerLogin(GoogleProvider)}>Login with Google</Button>
+                        <Button onClick={() => providerLogin(GithubProvider)}>Login with Github</Button>
                     </ButtonGroup>
                 </div>
 
