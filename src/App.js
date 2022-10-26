@@ -1,13 +1,15 @@
+import { useContext } from 'react';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Header from './Pages/Shared/Header/Header';
+import { AuthContext } from './Context/AuthContextProvider';
+import { routes } from './Routes/Route';
 
 function App() {
-  const theme1 = "bg-dark text-white";
-  const theme2 = "bg-light text-black";
-
+  const { theme } = useContext(AuthContext);
+  const ClassName = `bg-${theme} text-${theme === 'dark' ? 'light' : 'dark'}`;
   return (
-    <div className={theme1}>
-      <Header></Header>
+    <div className={ClassName}>
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
