@@ -18,6 +18,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/faq',
+                loader: () => fetch('FAQData.json'),
                 element: <Faq></Faq>
             },
             {

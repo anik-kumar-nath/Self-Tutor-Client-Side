@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "Q":"How do you create refs in React?",
+        "A":"Can your candidates explain that they must use React.createRef() to create refs in React.js? They should also understand that the ref is often assigned to an instance property when constructing a component."
+    },
+    {
+        "id":2,
+        "Q":"Name two advantages of using React.js.",
+        "A":"Candidates may mention several advantages of using React.js when responding to this question. For example, they may explain that the library helps them build high-quality user interfaces or that it permits them to write custom components."
+    },
+    {
+        "id":3,
+        "Q":"Name one advantage of using Flux.",
+        "A":"Your candidates may start by explaining that Flux is a JavaScript architecture that operates on a unidirectional data flow. But do they know Flux offers many advantages for projects with dynamic data? For example, can they explain that Flux helps ensure dynamic data is updated effectively?"
+    },
+    {
+        "id":4,
+        "Q":"How often does the React useState update? Why?",
+        "A":"Since developers use useState to enhance performance by creating queues, React doesn’t update changes immediately. Candidate should know that useState doesn’t implement changes to the state object directly; instead, the updates occur asynchronously"
+    },
+    {
+        "id":5,
+        "Q":"In which situation would you use refs in React?",
+        "A":"Advanced candidates should understand that they can use React refs to access a DOM element. They may also explain that they would use refs to access an element they have created to change a child component’s value."
+    },
+    {
+        "id":6,
+        "Q":"How would you avoid binding in React?",
+        "A":"Candidates who have advanced React skills should be aware that they can use arrow functions in class properties to avoid binding in React. They may mention that class properties are a new feature and, to use them, a developer must enable transform-class-properties."
+    }
+]
