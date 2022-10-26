@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
-import Blog from '../Pages/Blog/Blog';
+import Blogs from '../Pages/Blog/Blogs';
 import Courses from '../Pages/Courses/Courses';
 import Faq from '../Pages/Faq/Faq';
 import Login from '../Pages/Login/Login';
@@ -22,7 +22,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>
+                loader: () => fetch('BlogData.json'),
+                element: <Blogs></Blogs>
             },
             {
                 path: '/',
