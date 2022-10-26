@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
 import Blogs from '../Pages/Blog/Blogs';
 import Courses from '../Pages/Courses/Courses';
+import ErrorRoute from '../Pages/ErrorRoute/ErrorRoute';
 import Faq from '../Pages/Faq/Faq';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Login/LogingWithEmail/Register';
@@ -13,31 +14,36 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: ([
             {
+                path: '/',
+                element: <Courses></Courses>,
+                errorElement: <ErrorRoute></ErrorRoute>
+            },
+            {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login></Login>,
+                errorElement: <ErrorRoute></ErrorRoute>
             },
             {
                 path: '/faq',
                 loader: () => fetch('FAQData.json'),
-                element: <Faq></Faq>
+                element: <Faq></Faq>,
+                errorElement: <ErrorRoute></ErrorRoute>
             },
             {
                 path: '/blog',
                 loader: () => fetch('BlogData.json'),
-                element: <Blogs></Blogs>
-            },
-            {
-                path: '/',
-                element: <Courses></Courses>
+                element: <Blogs></Blogs>,
+                errorElement: <ErrorRoute></ErrorRoute>
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register></Register>,
+                errorElement: <ErrorRoute></ErrorRoute>
             },
+            {
+                path: '*',
+                element: <ErrorRoute></ErrorRoute>
+            }
         ])
     },
-    {
-        path: '*',
-        element: <div><h1>route not found</h1></div>
-    }
 ]);
