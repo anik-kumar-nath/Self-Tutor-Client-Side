@@ -1,11 +1,17 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContextProvider';
 
 const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext);
+    const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
 
     const GoogleProvider = new GoogleAuthProvider();
     const GithubProvider = new GithubAuthProvider();
@@ -17,12 +23,13 @@ const Login = () => {
         const password = form.password.value;
         signIn(email, password)
             .then(result => {
+                setError('');
                 const user = result.user;
-                console.log(user);
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                console.error(error);
+                setError(error.message);
             })
     }
 
@@ -44,6 +51,8 @@ const Login = () => {
                             <Button variant="primary" type="submit" className='w-100'>
                                 Submit
                             </Button>
+                            <br />
+                            <strong className='text-danger'>{error}</strong>
                         </Form>
                         <p>No account yet? <Link to={'/register'}>Register Now</Link> </p>
                         <hr className='border border-danger border-2 opacity-50 w-100' />

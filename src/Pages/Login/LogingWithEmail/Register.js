@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../Context/AuthContextProvider';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [error, setError] = useState("");
 
     const handleUpdateProfile = (name, photoURL) => {
         const profile = {
@@ -22,14 +23,14 @@ const Register = () => {
         const UserPhotoURL = form.UserPhotoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, UserPhotoURL, email, password);
         createUser(email, password)
             .then(result => {
+                setError('');
                 form.reset();
                 handleUpdateProfile(name, UserPhotoURL);
             })
-            .catch(e => {
-                console.error(e);
+            .catch(error => {
+                setError(error.message);
             });
     }
 
@@ -57,6 +58,8 @@ const Register = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+                <br />
+                <strong className='text-danger'>{error}</strong>
             </Form>
         </div>
     );

@@ -15,6 +15,7 @@ const AuthContextProvider = ({ children }) => {
     }
 
     const [category, setcategory] = useState(null);
+    const [checkout, setCheckout] = useState({});
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -44,7 +45,6 @@ const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('inside auth state change', currentUser);
             setUser(currentUser);
             setLoading(false);
         });
@@ -55,7 +55,7 @@ const AuthContextProvider = ({ children }) => {
 
     }, [])
 
-    const AuthInfo = { theme, handleToggleTheme, user, createUser, signIn, logOut, loading, updateUserProfile, providerLogin, category, setcategory };
+    const AuthInfo = { theme, handleToggleTheme, user, createUser, signIn, logOut, loading, updateUserProfile, providerLogin, category, setcategory, setCheckout, checkout };
     return (
         <div>
             <AuthContext.Provider value={AuthInfo}>

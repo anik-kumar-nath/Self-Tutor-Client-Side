@@ -1,9 +1,10 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import ReactToPdf from "react-to-pdf";
+import { AuthContext } from '../../../Context/AuthContextProvider';
 
 const CourseDetails = () => {
+    const { setCheckout } = useContext(AuthContext);
     const courseDetails = useLoaderData();
     const { title, details, image } = courseDetails;
     const options = {
@@ -22,8 +23,8 @@ const CourseDetails = () => {
             <div ref={ref} className="mx-auto">
                 <h2 className='text-success'>{title}</h2>
                 <img src={image} alt="" className='w-100' height="300" style={{ 'alignContent': 'center' }} />
-                <p className='text-success'> {details}</p>
-                <Button variant="primary">Get Premium Access</Button>
+                <p className='text-success fw-bolder'> {details}</p>
+                <Link to={'/checkout'} className='btn btn-primary' onClick={() => setCheckout(courseDetails)}>Get Premium Access</Link>
             </div>
         </div>
     );
