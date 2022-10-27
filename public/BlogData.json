@@ -1,23 +1,23 @@
 [
     {
         "id":1,
-"Question":"what is cors?",
-"Answer":"Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A web page may freely embed cross-origin images, stylesheets, scripts, frames, and videos"
+        "Question":"what is cors?",
+        "Answer":"Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A web page may freely embed cross-origin images, stylesheets, scripts, frames, and videos"
     },
     {
         "id":2,
-"Question":"Why are you using firebase? What other options do you have to implement authentication?",
-"Answer":"Firebase is a cross-platform SDKs to help us to build and ship apps on Android, iOS, the web, C++, and Unity. And have many features that pitch it as the go-to backend development tool for web and mobile apps. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints."
+        "Question":"Why are you using firebase? What other options do you have to implement authentication?",
+        "Answer":"Firebase is a cross-platform SDKs to help us to build and ship apps on Android, iOS, the web, C++, and Unity. And have many features that pitch it as the go-to backend development tool for web and mobile apps. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints."
     },
     {
         "id":3,
-"Question":"How does the private route work?",
-"Answer":"The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated."
+        "Question":"How does the private route work?",
+        "Answer":"The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated."
     },
     {
         "id":4,
-"Question":"What is Node? How does Node work?",
-"Answer":"Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node. js runs on chrome v8 engine which converts javascript code into machine code. Node JS Web Server internally maintains a Limited Thread pool to provide services to the Client Requests. Node JS Web Server receives those requests and places them into a Queue. It is known as “Event Queue”. Node JS Web Server internally has a Component, known as 'Event Loop'"
+        "Question":"What is Node? How does Node work?",
+        "Answer":"Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node. js runs on chrome v8 engine which converts javascript code into machine code. Node JS Web Server internally maintains a Limited Thread pool to provide services to the Client Requests. Node JS Web Server receives those requests and places them into a Queue. It is known as “Event Queue”. Node JS Web Server internally has a Component, known as 'Event Loop'"
     }
 
 ]

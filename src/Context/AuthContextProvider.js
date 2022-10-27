@@ -14,7 +14,7 @@ const AuthContextProvider = ({ children }) => {
             setTheme('dark')
     }
 
-    const [category, setcategory] = useState('01');
+    const [category, setcategory] = useState(null);
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,8 +22,6 @@ const AuthContextProvider = ({ children }) => {
     const providerLogin = (provider) => {
         return signInWithPopup(auth, provider);
     }
-
-
 
 
     const createUser = (email, password) => {
@@ -56,9 +54,6 @@ const AuthContextProvider = ({ children }) => {
         }
 
     }, [])
-
-
-
 
     const AuthInfo = { theme, handleToggleTheme, user, createUser, signIn, logOut, loading, updateUserProfile, providerLogin, category, setcategory };
     return (

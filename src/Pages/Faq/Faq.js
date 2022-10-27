@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
 
 const Faq = () => {
-    const faqData = useLoaderData();
+    const [faqData, setfaqData] = useState([]);
+    useEffect(() => {
+        fetch('FAQData.json')
+            .then(response => response.json())
+            .then(result => setfaqData(result))
+    }, []);
+
     return (
         <div className='container'>
             <h1 className='text-center text-success mb-3 fw-bolder'>React.js interview frequently asked questions</h1>

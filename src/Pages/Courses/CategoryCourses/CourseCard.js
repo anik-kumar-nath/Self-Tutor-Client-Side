@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const CourseCard = ({ news }) => {
@@ -19,7 +19,7 @@ const CourseCard = ({ news }) => {
                     }
                 </Card.Body>
                 <Card.Footer className="d-flex justify-content-between">
-                    <Link to={`course/${_id}`} className='text-light btn btn-primary w-100'>Go to Tutorial</Link>
+                    <Link to={`course/${_id}`} className='text-light btn btn-primary w-100'>Get Course</Link>
                 </Card.Footer>
             </Card>
         </div>
