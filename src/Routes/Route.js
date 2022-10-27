@@ -2,6 +2,8 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
 import Blogs from '../Pages/Blog/Blogs';
+import CourseCategory from '../Pages/Courses/CourseCategory/CourseCategory';
+import CourseDetails from '../Pages/Courses/CourseDetails/CourseDetails';
 import Courses from '../Pages/Courses/Courses';
 import ErrorRoute from '../Pages/ErrorRoute/ErrorRoute';
 import Faq from '../Pages/Faq/Faq';
@@ -14,13 +16,14 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: ([
             {
-                path: '/',
-                element: <Courses></Courses>,
+                path: '/course/:id',
+                loader: ({ params }) => fetch(`https://assignment-10-edu-data-aknathweb.vercel.app/course/${params.id}`),
+                element: <CourseDetails></CourseDetails>,
                 errorElement: <ErrorRoute></ErrorRoute>
             },
             {
-                path: '/login',
-                element: <Login></Login>,
+                path: '/',
+                element: <Courses></Courses>,
                 errorElement: <ErrorRoute></ErrorRoute>
             },
             {
@@ -36,14 +39,19 @@ export const routes = createBrowserRouter([
                 errorElement: <ErrorRoute></ErrorRoute>
             },
             {
+                path: '/login',
+                element: <Login></Login>,
+                errorElement: <ErrorRoute></ErrorRoute>
+            },
+            {
                 path: '/register',
                 element: <Register></Register>,
                 errorElement: <ErrorRoute></ErrorRoute>
             },
-            {
-                path: '*',
-                element: <ErrorRoute></ErrorRoute>
-            }
         ])
     },
+    {
+        path: '*',
+        element: <ErrorRoute></ErrorRoute>
+    }
 ]);

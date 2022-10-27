@@ -4,13 +4,12 @@ import { useLoaderData } from 'react-router-dom';
 
 const Faq = () => {
     const faqData = useLoaderData();
-
     return (
         <div className='container'>
             <h1 className='text-center text-success mb-3 fw-bolder'>React.js interview frequently asked questions</h1>
             {
                 faqData.map((data, index) =>
-                    <div className='m-3'>
+                    <div className='m-3' key={index}>
                         <Accordion defaultActiveKey="1">
                             <Accordion.Item eventKey={data.id - 1}>
                                 <Accordion.Header>{data.Q}</Accordion.Header>

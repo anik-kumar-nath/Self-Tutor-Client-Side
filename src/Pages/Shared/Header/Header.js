@@ -17,19 +17,19 @@ const Header = () => {
             .catch(error => console.error(error))
     }
 
-
     return (
         <div className='fw-bolder'>
             <Navbar collapseOnSelect expand="md" bg={theme} variant={theme}>
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="#home" className='d-flex'>
                         <img
                             alt="logo"
                             src={logo}
                             width="100"
                             height="50"
-                            className="d-inline-block align-top"
+                            className="d-inline-block align-top me-1"
                         />
+                        <strong>Self Tutor</strong>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

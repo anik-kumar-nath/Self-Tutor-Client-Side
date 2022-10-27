@@ -14,6 +14,8 @@ const AuthContextProvider = ({ children }) => {
             setTheme('dark')
     }
 
+    const [category, setcategory] = useState('01');
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -58,7 +60,7 @@ const AuthContextProvider = ({ children }) => {
 
 
 
-    const AuthInfo = { theme, handleToggleTheme, user, createUser, signIn, logOut, loading, updateUserProfile, providerLogin };
+    const AuthInfo = { theme, handleToggleTheme, user, createUser, signIn, logOut, loading, updateUserProfile, providerLogin, category, setcategory };
     return (
         <div>
             <AuthContext.Provider value={AuthInfo}>
